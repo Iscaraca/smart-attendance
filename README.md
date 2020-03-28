@@ -20,6 +20,11 @@ The code will refresh every day at 00 00.
 ## Instructions
 Clone this repository and cd into the directory.
 
+```
+$ git clone https://github.com/Iscaraca/smart-attendance.git
+$ cd smart-attendance
+```
+
 Ensure you create a virtual environment for this application and install
 the necessary libraries from the `requirements.txt` file.
 
