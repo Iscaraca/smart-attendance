@@ -1,21 +1,12 @@
-"""
-Flask Documentation:     http://flask.pocoo.org/docs/
-Jinja2 Documentation:    http://jinja.pocoo.org/2/documentation/
-Werkzeug Documentation:  http://werkzeug.pocoo.org/documentation/
-This file creates your application.
-"""
-
 from app import app, db
 from flask import render_template, request, redirect, url_for, flash
 from app.forms import UserForm, AccountForm
 from app.models import User, Account
 from datetime import datetime
 import base62
+from pytz import timezone
 # import sqlite3
 
-###
-# Routing for your application.
-###
 
 
 @app.route('/')
@@ -58,11 +49,11 @@ def add_user():
     if request.method == 'POST':
         if user_form.validate_on_submit():
             # Get validated data from form
-            now = datetime.now()
+            now = datetime.now(timezone("Singapore"))
             dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
             namefull = Account.query.filter_by(username=user_form.name.data).first()
             dt_day = 10000*now.year + 100*now.month + now.day
-            valid = base62.encode(dt_day)
+            valid = base62.decode(str(dt_day))
             if user_form.valid.data == valid:
             # save user's attendance time to database
                 user = User(name = namefull.fullname, classno = user_form.classno.data , attendanceTime = dt_string)
@@ -83,12 +74,12 @@ def flash_errors(form):
                 getattr(form, field).label.text,
                 error
             ))
-
+            
 @app.route('/password')
 def valid():
-    now = datetime.now()
+    now = datetime.now(timezone("Singapore"))
     dt_day = 10000*now.year + 100*now.month + now.day
-    valid = base62.encode(dt_day)
+    valid = base62.decode(str(dt_day))
     return render_template('password.html', valid=valid)
 
 
