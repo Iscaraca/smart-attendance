@@ -54,7 +54,7 @@ def add_user():
             namefull = Account.query.filter_by(username=user_form.name.data).first()
             dt_day = 10000*now.year + 100*now.month + now.day
             valid = base62.decode(str(dt_day))
-            if user_form.valid.data == valid:
+            if user_form.valid.data == str(valid):
             # save user's attendance time to database
                 user = User(name = namefull.fullname, classno = user_form.classno.data , attendanceTime = dt_string)
                 db.session.add(user)
