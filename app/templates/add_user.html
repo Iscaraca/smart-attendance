@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="container">
+  <h1 class="page-header">Attendance Details</h1>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="alert alert-danger">
+        <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  {% endwith %}
+  <form method="POST" action="{{ url_for('add_user') }}">
+    {{ form.csrf_token }}
+    <div class="form-group">{{ form.name.label }} {{ form.name(size=20, class="form-control") }}</div>
+    <div class="form-group">{{ form.classno.label }} {{ form.classno(size=20, class="form-control") }}</div>
+    <div class="form-group">{{ form.valid.label }} {{ form.valid(size=20, class="form-control") }}</div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+{% endblock %}
