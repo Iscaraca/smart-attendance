@@ -21,10 +21,10 @@ $ pip install -r requirements.txt
 Start the development server
 
 ```
-$ python run.py
+$ python run.py 127.0.0.1
 ```
 
-Browse to http://0.0.0.0:8080
+Browse to http://127.0.0.1:8080/
 
 To reset the users/accounts table, run the following SQL queries:
 ```
