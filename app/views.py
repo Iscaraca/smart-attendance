@@ -31,11 +31,11 @@ def login():
     else:
         return render_template('login.html', form=account_form)
 
-@app.route('/about/')
+@app.route('/about')
 def about():
     return render_template('about.html')
 
-@app.route('/users')
+@app.route('/logs')
 def show_users():
     '''
     SELECT * FROM users, gets each row as an object containing attributes for each column.
