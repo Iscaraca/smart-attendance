@@ -17,7 +17,7 @@ Teachers must display a unique validation code on their screens inaccessible to
 students. Accessing this code would require navigating to /password.html.
 The code will refresh every day at 00 00.
 
-## Instructions
+## Instructions for localhost
 Clone this repository and cd into the directory.
 
 ```
