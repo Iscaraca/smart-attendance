@@ -6,7 +6,7 @@ Aimed at schools in Singapore.
 This project is for my school's Computing CA, where every student must design a
 web app on the topic of "smart schools". I wanted to make an app that demonstrates
 Flask-WTF and Flask-SQLAlchemy using a SQLite database, storing both accounts and
-attendance timings in two distinct tables.
+attendance timings in two distinct tables, to familiarise myself with OOP concepts.
 
 Students must log in first with a username and full name, then proceed to Confirm
 Attendance to book in with their username, class and a validation code displayed
